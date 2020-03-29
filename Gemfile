@@ -11,12 +11,15 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 
 gem 'devise', '~> 4.7.1'
+gem 'fast_jsonapi'
+gem 'jwt'
+gem 'oj'
+gem 'versionist'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -34,9 +37,6 @@ end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'guard', '~> 2.16.1'
   gem 'guard-brakeman', '~> 0.8.6', require: false
