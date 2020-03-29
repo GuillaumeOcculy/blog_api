@@ -36,6 +36,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  gem 'guard', '~> 2.16.1'
+  gem 'guard-brakeman', '~> 0.8.6', require: false
+  gem 'guard-reek', '~> 1.2.0', require: false
+  gem 'guard-rubocop', '~> 1.3.0', require: false
+
   gem 'brakeman', '~> 4.8.0', require: false
   gem 'bullet', '~> 6.1.0'
   gem 'reek', '~> 5.6.0', require: false
