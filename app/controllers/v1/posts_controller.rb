@@ -1,9 +1,9 @@
 class V1::PostsController < V1::BaseController
-  before_action :authenticate_token!
+  before_action :authenticate_token!, only: [:create]
 
   def index
-    posts = Post.all
-    render json: ::PostSerializer.new(posts).serialized_json
+    posts = Post.includes(:user)
+    render json: ::PostSerializer.new(posts, include: [:user]).serialized_json
   end
 
   def show
