@@ -32,6 +32,6 @@ class V1::BaseController < ApplicationController
     end
     head status: status && return if errors.empty?
 
-    render json: errors, status: status
+    render json: {errors: errors}, status: status
   end
 end
