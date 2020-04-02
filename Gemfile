@@ -12,6 +12,7 @@ gem 'puma', '~> 4.1'
 
 gem 'devise', '~> 4.7.1'
 gem 'fast_jsonapi'
+gem 'friendly_id', '~> 5.2.4'
 gem 'jwt'
 gem 'oj'
 gem 'versionist'

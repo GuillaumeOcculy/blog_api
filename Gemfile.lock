@@ -91,6 +91,8 @@ GEM
       activesupport (>= 4.2)
     ffi (1.12.2)
     formatador (0.2.5)
+    friendly_id (5.2.5)
+      activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     guard (2.16.2)
@@ -256,6 +258,7 @@ DEPENDENCIES
   byebug
   devise (~> 4.7.1)
   fast_jsonapi
+  friendly_id (~> 5.2.4)
   guard (~> 2.16.1)
   guard-brakeman (~> 0.8.6)
   guard-reek (~> 1.2.0)
