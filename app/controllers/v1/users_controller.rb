@@ -1,6 +1,4 @@
 class V1::UsersController < V1::BaseController
-  # before_action :authenticate_token!
-
   def index
     users = User.all
     render json: users
@@ -18,6 +16,6 @@ class V1::UsersController < V1::BaseController
   private
 
   def user_params
-    params.permit(:email, :password, :first_name, :last_name)
+    snakecase_params.permit(:email, :password, :first_name, :last_name)
   end
 end

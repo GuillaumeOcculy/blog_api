@@ -5,6 +5,10 @@ class V1::BaseController < ApplicationController
 
   private
 
+  def snakecase_params
+    params.transform_keys(&:underscore)
+  end
+
   def set_default_format
     request.format = :json
   end
