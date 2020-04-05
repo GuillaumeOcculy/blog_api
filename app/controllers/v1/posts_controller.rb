@@ -3,12 +3,12 @@ class V1::PostsController < V1::BaseController
 
   def index
     posts = Post.includes(:user, :likes).recent
-    render json: ::PostSerializer.new(posts, include: [:user]).serialized_json
+    render json: ::PostSerializer.new(posts, include: [:user], params: { current_user: current_user }).serialized_json
   end
 
   def show
     post = Post.find(params[:id])
-    render json: ::PostSerializer.new(post, include: [:user]).serialized_json
+    render json: ::PostSerializer.new(post, include: [:user], params: { current_user: current_user }).serialized_json
   end
 
   def create

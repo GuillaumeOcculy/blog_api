@@ -6,9 +6,13 @@ class PostSerializer
     "/posts/#{object.id}"
   end
 
+  attribute :liked_by_current_user do |object, params|
+    object.liked_by_user?(params[:current_user])
+  end
+
   belongs_to :user
   has_many :likes, links: {
-    related: -> (object) {
+    related: ->(object) {
       "/posts/#{object.id}/likes"
     }
   }

@@ -2,6 +2,7 @@ class V1::BaseController < ApplicationController
   attr_reader :current_user
 
   before_action :set_default_format
+  before_action :authenticate_user
 
   private
 
@@ -20,6 +21,12 @@ class V1::BaseController < ApplicationController
     api_error(status: :unauthorized, errors: ['Auth token has expired'])
   rescue JWT::DecodeError
     api_error(status: :unauthorized, errors: ['Invalid auth token'])
+  end
+
+  def authenticate_user
+    return unless auth_token
+
+    authenticate_token!
   end
 
   def auth_token

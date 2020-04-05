@@ -6,4 +6,10 @@ class Post < ApplicationRecord
   validates :body, presence: true
 
   scope :recent, -> { order(created_at: :desc) }
+
+  def liked_by_user?(user)
+    return false unless user
+
+    likes_by_users.exists?(user.id)
+  end
 end
