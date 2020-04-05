@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
     resources :posts, only: [:index, :show, :create] do
       scope module: :posts do
+        resources :likes, only: [:index]
         resource :likes, only: [:create, :destroy]
       end
     end
