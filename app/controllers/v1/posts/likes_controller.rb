@@ -10,7 +10,10 @@ class V1::Posts::LikesController < V1::BaseController
 
   def create
     @post.likes.find_or_create_by(user_id: current_user.id)
-    render json: ::PostSerializer.new(@post, include: [:user], params: { current_user: current_user }).serialized_json, status: :created
+    options = { include: [:user] }
+    options[:params] = { current_user: current_user }
+
+    render json: ::PostSerializer.new(@post, options).serialized_json, status: :created
   end
 
   def destroy
