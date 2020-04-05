@@ -16,4 +16,10 @@ class PostSerializer
       "/posts/#{object.id}/likes"
     }
   }
+
+  has_many :comments, links: {
+    related: ->(object) {
+      "/posts/#{object.id}/comments"
+    }
+  }
 end

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       scope module: :posts do
         resources :likes, only: [:index]
         resource :likes, only: [:create, :destroy]
+
+        resources :comments, only: [:index, :create, :destroy]
       end
     end
   end
