@@ -5,7 +5,7 @@ class V1::Posts::CommentsController < V1::BaseController
   before_action :check_post
 
   def index
-    comments = @post.comments.includes(:user, :commentable)
+    comments = @post.comments.includes(:user)
     options = { include: [:user] }
     options[:params] = { current_user: current_user }
 

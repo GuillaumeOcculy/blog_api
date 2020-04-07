@@ -2,7 +2,7 @@ class V1::PostsController < V1::BaseController
   before_action :authenticate_token!, only: [:create]
 
   def index
-    posts = Post.includes(:user, :likes).recent
+    posts = Post.includes(:user).recent
     render json: ::PostSerializer.new(posts, include: [:user], params: { current_user: current_user }).serialized_json
   end
 
