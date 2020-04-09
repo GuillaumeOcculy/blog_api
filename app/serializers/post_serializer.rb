@@ -10,6 +10,8 @@ class PostSerializer
     object.liked_by_user?(params[:current_user])
   end
 
+  attribute :image, &:image_sizes
+
   belongs_to :user
   has_many :likes, links: {
     related: ->(object) {
