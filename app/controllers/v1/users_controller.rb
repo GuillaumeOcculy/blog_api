@@ -4,6 +4,13 @@ class V1::UsersController < V1::BaseController
     render json: users
   end
 
+  def show
+    user = User.friendly.find(params[:id])
+    options = { params: { current_user: current_user } }
+
+    render json: ::UserSerializer.new(user, options)
+  end
+
   def create
     user = User.new(user_params)
     if user.save

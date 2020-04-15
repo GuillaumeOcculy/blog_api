@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  include Friendable
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
