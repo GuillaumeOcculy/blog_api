@@ -8,6 +8,8 @@ class V1::PostsController < V1::BaseController
 
   def show
     post = Post.find(params[:id])
+    return api_error(status: 404, errors: ['post not found']) unless post
+
     render json: ::PostSerializer.new(post, include: [:user], params: { current_user: current_user }).serialized_json
   end
 

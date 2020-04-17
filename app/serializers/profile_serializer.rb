@@ -1,4 +1,4 @@
 class ProfileSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :username, :slug
+  attributes :username
 end

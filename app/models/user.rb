@@ -5,8 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   include Friendable
-  extend FriendlyId
-  friendly_id :username, use: :slugged
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -14,10 +12,10 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true, format: { with: /\A[a-z]+\z/ }
 
-  # Changes slug when first_name or last_name change
-  def should_generate_new_friendly_id?
-    username_changed? || super
+  def self.find_by_slug(slug)
+    find_by(username: slug) || find_by(id: slug)
   end
+
 
   def full_name
     [first_name, last_name].join(' ')

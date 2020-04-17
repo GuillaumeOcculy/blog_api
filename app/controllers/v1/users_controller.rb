@@ -5,7 +5,9 @@ class V1::UsersController < V1::BaseController
   end
 
   def show
-    user = User.friendly.find(params[:id])
+    user = User.find_by_slug(params[:id])
+    return api_error(status: 404, errors: ['user not found']) unless user
+
     options = { params: { current_user: current_user } }
 
     render json: ::UserSerializer.new(user, options)
