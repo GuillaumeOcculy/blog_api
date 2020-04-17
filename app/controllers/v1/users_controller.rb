@@ -23,6 +23,6 @@ class V1::UsersController < V1::BaseController
   private
 
   def user_params
-    snakecase_params.permit(:email, :password, :first_name, :last_name)
+    snakecase_params.permit(:username, :password)
   end
 end

@@ -1,6 +1,6 @@
 class UserSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :first_name, :last_name, :slug
+  attributes :username, :slug
 
   attribute :current_user_friendship_status do |object, params|
     return unless params[:current_user]
