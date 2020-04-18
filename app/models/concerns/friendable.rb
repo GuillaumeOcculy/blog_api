@@ -29,6 +29,11 @@ module Friendable
       Friendship.find_by(user: friend, friend: self, status: :pending).declined!
     end
 
+    def unfriend(friend)
+      friendships.accepted.find_by(friend: friend).destroy
+      friend.friendships.accepted.find_by(friend: self).destroy
+    end
+
     def friend?(user)
       friendships.where(friend_id: user, status: 'accepted').any?
     end

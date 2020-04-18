@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get :profile, to: 'profile#show'
 
     scope module: :users do
+      resources :friends, only: [:destroy]
       resources :friend_requests, only: [] do
         patch :accept
         patch :decline
