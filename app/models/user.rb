@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def token
-    JsonWebToken.encode(sub: id)
+    JsonWebToken.encode(sub: id, username: username)
   end
 
   private
