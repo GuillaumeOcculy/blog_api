@@ -10,7 +10,7 @@ class V1::UsersController < V1::BaseController
 
     options = { params: { current_user: current_user } }
 
-    render json: ::UserSerializer.new(user, options)
+    render json: ::ProfileSerializer.new(user, options)
   end
 
   def create

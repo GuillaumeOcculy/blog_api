@@ -17,16 +17,16 @@ module Friendable
       Friendship.find_or_create_by(user: friend, friend: self, status: :requested)
     end
 
-    def accept_friend_request(friendship_id)
-      friendship = friendships.find_by(id: friendship_id, status: :requested)
+    def accept_friend_request(friend)
+      friendship = friendships.find_by(friend: friend, status: :requested)
       friendship.accepted!
-      Friendship.find_by(user: friendship.friend, friend: self, status: :pending).accepted!
+      Friendship.find_by(user: friend, friend: self, status: :pending).accepted!
     end
 
-    def decline_friend_request(friendship_id)
-      friendship = friendships.find_by(id: friendship_id, status: :requested)
+    def decline_friend_request(friend)
+      friendship = friendships.find_by(friend: friend, status: :requested)
       friendship.declined!
-      Friendship.find_by(user: friendship.friend, friend: self, status: :pending).declined!
+      Friendship.find_by(user: friend, friend: self, status: :pending).declined!
     end
 
     def friend?(user)
