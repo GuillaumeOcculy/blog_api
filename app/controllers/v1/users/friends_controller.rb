@@ -3,15 +3,7 @@ class V1::Users::FriendsController < V1::BaseController
   before_action :check_user
 
   def index
-    friendships = find_user.friendships.where(status: [:accepted, :requested])
-    render json: ::FriendshipSerializer.new(friendships, include: [:friend]).serialized_json
-  end
-
-  def create
-    current_user.send_friend_request(find_user)
-    friendship = current_user.friendships.find_by(friend: find_user)
-
-    render json: ::FriendshipSerializer.new(friendship, include: [:friend]), status: :created
+    render json: ::UserSerializer.new(find_user.friends).serialized_json
   end
 
   private

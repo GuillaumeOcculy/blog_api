@@ -16,3 +16,5 @@ users = User.where.not(username: first_user.username)
 users.each { |user| user.send_friend_request(first_user) }
 
 User.all.each { |user| FactoryBot.create_list(:post, 3, user: user) }
+
+FactoryBot.create(:user, username: 'gwen')

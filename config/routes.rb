@@ -4,14 +4,17 @@ Rails.application.routes.draw do
 
     get :profile, to: 'profile#show'
 
-    resources :friends, only: [] do
-      patch :accept
-      patch :decline
+    scope module: :users do
+      resources :friend_requests, only: [] do
+        patch :accept
+        patch :decline
+      end
     end
 
     resources :users, only: [:show, :create] do
       scope module: :users do
-        resources :friends, only: [:index, :create]
+        resources :friends, only: [:index]
+        resources :friend_requests, only: [:index, :create]
       end
     end
 
