@@ -19,6 +19,12 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :users, only: [:show, :create] do
+      scope module: :users do
+        resources :friends, only: [:index, :create]
+      end
+    end
+
     resources :posts, only: [:index, :show, :create] do
       scope module: :posts do
         resources :likes, only: [:index]
