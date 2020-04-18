@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+first_user = FactoryBot.create(:user, username: 'guillaume')
+
+FactoryBot.create_list(:user, 10)
+
+users = User.where.not(username: first_user.username)
+
+users.each { |user| user.send_friend_request(first_user) }
+
+User.all.each { |user| FactoryBot.create_list(:post, 3, user: user) }
