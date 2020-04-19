@@ -14,14 +14,8 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show, :create] do
       scope module: :users do
-        resources :friends, only: [:index]
-        resources :friend_requests, only: [:index, :create]
-      end
-    end
-
-    resources :users, only: [:show, :create] do
-      scope module: :users do
         resources :friends, only: [:index, :create]
+        resources :friend_requests, only: [:index, :create]
       end
     end
 
