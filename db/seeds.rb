@@ -9,7 +9,7 @@
 
 first_user = FactoryBot.create(:user, username: 'guillaume')
 
-FactoryBot.create_list(:user, 10)
+FactoryBot.create_list(:user, 20)
 
 users = User.where.not(username: first_user.username)
 
