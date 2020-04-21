@@ -4,7 +4,15 @@ Rails.application.routes.draw do
 
     get :profile, to: 'profile#show'
 
+    scope module: :conversations do
+      resources :conversations, only: [] do
+        resources :messages, only: [:index, :create]
+      end
+    end
+
     scope module: :users do
+      resources :messages, only: [:create]
+      resources :conversations, only: [:index, :show]
       resources :friends, only: [:destroy]
       resources :friend_requests, only: [] do
         patch :accept
