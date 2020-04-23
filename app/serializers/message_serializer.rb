@@ -7,4 +7,5 @@ class MessageSerializer
   end
 
   belongs_to :user
+  belongs_to :conversation
 end
