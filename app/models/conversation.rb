@@ -18,4 +18,13 @@ class Conversation < ApplicationRecord
       conversation
     end
   end
+
+  def self.between(*users)
+    users.map do |u|
+      where("EXISTS(SELECT * FROM conversation_users uc WHERE uc.conversation_id = conversations.id AND uc.user_id = ?)", u)
+    end.reduce(&:merge)
+      .joins(:conversation_users)
+      .group(:id)
+      .having('count(*) = ?', users.length)
+  end
 end
