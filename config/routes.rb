@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show, :create] do
       scope module: :users do
+        resources :posts, only: [:index]
         resources :friends, only: [:index, :create]
         resources :friend_requests, only: [:index, :create]
       end
