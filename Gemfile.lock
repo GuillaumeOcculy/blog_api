@@ -101,12 +101,22 @@ GEM
       railties (>= 3.2, < 6.1)
     down (5.1.1)
       addressable (~> 2.5)
+    elasticsearch (7.6.0)
+      elasticsearch-api (= 7.6.0)
+      elasticsearch-transport (= 7.6.0)
+    elasticsearch-api (7.6.0)
+      multi_json
+    elasticsearch-transport (7.6.0)
+      faraday (~> 1)
+      multi_json
     erubi (1.9.0)
     factory_bot (5.1.2)
       activesupport (>= 4.2.0)
     factory_bot_rails (5.1.1)
       factory_bot (~> 5.1.0)
       railties (>= 4.2.0)
+    faraday (1.0.1)
+      multipart-post (>= 1.2, < 3)
     fast_jsonapi (1.5)
       activesupport (>= 4.2)
     ffaker (2.14.0)
@@ -131,6 +141,7 @@ GEM
     guard-rubocop (1.3.0)
       guard (~> 2.0)
       rubocop (~> 0.20)
+    hashie (4.1.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     image_processing (1.10.3)
@@ -158,6 +169,8 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.0)
     msgpack (1.3.3)
+    multi_json (1.14.1)
+    multipart-post (2.1.1)
     nenv (0.3.0)
     nio4r (2.5.2)
     nokogiri (1.10.9)
@@ -249,6 +262,10 @@ GEM
     ruby-vips (2.0.17)
       ffi (~> 1.9)
     ruby_dep (1.5.0)
+    searchkick (4.3.0)
+      activemodel (>= 5)
+      elasticsearch (>= 6)
+      hashie
     shellany (0.0.1)
     shrine (3.2.1)
       content_disposition (~> 1.0)
@@ -306,6 +323,7 @@ DEPENDENCIES
   rspec-rails (~> 4.0)
   rubocop (~> 0.80.1)
   rubocop-rails (~> 2.4.2)
+  searchkick
   shrine (~> 3.0)
   tzinfo-data
   versionist

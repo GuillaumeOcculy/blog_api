@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  searchkick searchable: [:username], match: :word_middle
+
   include Friendable
 
   has_many :posts, dependent: :destroy

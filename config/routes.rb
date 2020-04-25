@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
     get :profile, to: 'profile#show'
 
+    resources :searches, only: [:index]
+
     scope module: :conversations do
       resources :conversations, only: [] do
         resources :messages, only: [:index, :create]

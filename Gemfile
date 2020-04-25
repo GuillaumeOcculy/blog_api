@@ -19,6 +19,8 @@ gem 'versionist'
 gem 'aws-sdk-s3', '~> 1.14'
 gem 'shrine', '~> 3.0'
 
+gem 'searchkick'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 
