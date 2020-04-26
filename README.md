@@ -10,11 +10,12 @@ There is no security/performance because I'm too lazy to do it for a draft proje
 
 ## Instructions
 
-1. Clone this repo
-2. Install [Docker](https://www.docker.com/)
-3. `docker-compose run web bash` then `rake db:create db:migrate db:seed` and quit bash
+1. Install [Docker](https://www.docker.com/)
+2. Open your terminal and clone this repo
+3. `docker-compose run web bash` then `rake db:create db:migrate db:seed` and quit bash (`Ctrl + C`)
 4. `docker-compose up`
-5. Go to the [react repo](https://github.com/GuillaumeOcculy/react-blog)
+5. Open a new tab
+6. Go to the [react repo](https://github.com/GuillaumeOcculy/react-blog)
 
 ## Users
 The `login` of the first user is "guillaume"
