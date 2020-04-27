@@ -1,5 +1,5 @@
 # Use ruby image to build our own image
-FROM ruby:2.7
+FROM ruby:2.7.0
 
 RUN apt-get update && apt-get install -y \
     vim nano \
