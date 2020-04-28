@@ -4,7 +4,7 @@ class V1::Users::FriendsController < V1::BaseController
   before_action :check_friend, only: [:destroy]
 
   def index
-    render json: ::UserSerializer.new(find_user.friends).serialized_json
+    render json: ::UserSerializer.new(find_user.friends, params: { current_user: current_user }).serialized_json
   end
 
   def destroy
