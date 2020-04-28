@@ -4,7 +4,10 @@ class V1::Users::FriendRequestsController < V1::BaseController
   before_action :check_friend, only: [:accept, :decline]
 
   def index
-    render json: ::UserSerializer.new(find_user.requested_friends).serialized_json
+    requested_friends = []
+    requested_friends = find_user.requested_friends if current_user&.id == find_user.id
+
+    render json: ::UserSerializer.new(requested_friends).serialized_json
   end
 
   def create
