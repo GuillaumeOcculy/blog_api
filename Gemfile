@@ -17,7 +17,7 @@ gem 'oj'
 gem 'versionist'
 
 gem 'aws-sdk-s3', '~> 1.14'
-gem 'shrine', '~> 3.0'
+gem 'shrine', '~> 3.3'
 
 gem 'searchkick'
 
