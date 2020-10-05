@@ -99,7 +99,7 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
-    down (5.1.1)
+    down (5.2.0)
       addressable (~> 2.5)
     elasticsearch (7.6.0)
       elasticsearch-api (= 7.6.0)
@@ -187,7 +187,7 @@ GEM
     pry (0.13.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    public_suffix (4.0.4)
+    public_suffix (4.0.6)
     puma (4.3.3)
       nio4r (~> 2.0)
     rack (2.2.2)
@@ -267,7 +267,7 @@ GEM
       elasticsearch (>= 6)
       hashie
     shellany (0.0.1)
-    shrine (3.2.1)
+    shrine (3.3.0)
       content_disposition (~> 1.0)
       down (~> 5.1)
     sprockets (4.0.0)
@@ -324,7 +324,7 @@ DEPENDENCIES
   rubocop (~> 0.80.1)
   rubocop-rails (~> 2.4.2)
   searchkick
-  shrine (~> 3.0)
+  shrine (~> 3.3)
   tzinfo-data
   versionist
 
